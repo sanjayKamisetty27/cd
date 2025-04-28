@@ -203,7 +203,7 @@ export default function ExerciseStatistics() {
           .split("T")[0];
 
         const response = await axios.get(
-          `http://localhost:8081/exercisediary/list/${formattedDate}`,
+          `http://localhost:8080/exercisediary/list/${formattedDate}`,
           {
             headers: {
               email: email,
@@ -226,7 +226,7 @@ export default function ExerciseStatistics() {
   // Delete a food item
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:8081/exercisediary/delete/${id}`, {
+      await axios.delete(`http://localhost:8080/exercisediary/delete/${id}`, {
         headers: {
           email: email,
           Authorization: `Bearer ${authToken}`,
@@ -244,7 +244,7 @@ export default function ExerciseStatistics() {
   const handleShowDetails = async (id) => {
     try {
       const response = await axios.get(
-        `http://localhost:8081/exercisediary/details/${id}`,
+        `http://localhost:8080/exercisediary/details/${id}`,
         {
           headers: {
             email: email,
@@ -319,7 +319,7 @@ export default function ExerciseStatistics() {
 
     try {
       const response = await axios.post(
-        "http://localhost:8081/exercisediary/add",
+        "http://localhost:8080/exercisediary/add",
         adjustedFoodItem,
         { headers: { email } }
       );
@@ -418,7 +418,7 @@ export default function ExerciseStatistics() {
           .toISOString()
           .split("T")[0];
         const response = await axios.get(
-          `http://localhost:8081/exercisediary/stats/${formattedDate}`,
+          `http://localhost:8080/exercisediary/stats/${formattedDate}`,
           { headers: { email } }
         );
         setStats(response.data || {});  // Set an empty object if response is null or undefined
@@ -446,7 +446,7 @@ export default function ExerciseStatistics() {
           .split("T")[0];
 
         const response = await axios.get(
-          `http://localhost:8081/exercisediary/exercisestats/graph/${formattedDate}`,
+          `http://localhost:8080/exercisediary/exercisestats/graph/${formattedDate}`,
           { headers: { email } }
         );
         setGraphData(response.data || {}); // Set empty object if response is null or undefined
@@ -1526,7 +1526,7 @@ export default function ExerciseStatistics() {
       {/* Snackbar for notifications */}
       <Snackbar
         open={snackbar.open}
-        autoHideDuration={3001}
+        autoHideDuration={3000}
         onClose={() => setSnackbar({ ...snackbar, open: false })}
       >
         <Alert

@@ -9,7 +9,7 @@ COPY target/project-0.0.1-SNAPSHOT.jar /app/app.jar
 
 
 # Expose the port Spring Boot runs on
-EXPOSE 8081
+EXPOSE 8080
 
 # Run the application
 ENTRYPOINT ["java", "-jar", "app.jar"]

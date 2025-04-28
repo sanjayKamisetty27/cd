@@ -29,7 +29,7 @@ import com.example.Model.User;
 import com.example.Interface.DAO;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3001")
+@CrossOrigin(origins = "http://localhost:3000")
 public class UserService {
 
     @Autowired

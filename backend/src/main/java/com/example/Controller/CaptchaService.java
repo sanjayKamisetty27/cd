@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/captcha")
-@CrossOrigin(origins = "http://localhost:3001")  // Allowing frontend to access the API
+@CrossOrigin(origins = "http://localhost:3000")  // Allowing frontend to access the API
 public class CaptchaService {
 
     @GetMapping("/generate")

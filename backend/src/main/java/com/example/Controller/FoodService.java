@@ -17,7 +17,7 @@ import java.util.concurrent.CompletableFuture;
 
 @RestController
 @RequestMapping("/food")
-@CrossOrigin(origins = "http://localhost:3001")
+@CrossOrigin(origins = "http://localhost:3000")
 public class FoodService {
 
     @Autowired
