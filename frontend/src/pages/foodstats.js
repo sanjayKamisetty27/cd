@@ -203,7 +203,7 @@ export default function FoodStatistics() {
           .split("T")[0];
 
         const response = await axios.get(
-          `http://localhost:8080/fooddiary/list/${formattedDate}`,
+          `http://localhost:8081/fooddiary/list/${formattedDate}`,
           {
             headers: {
               email: email,
@@ -226,7 +226,7 @@ export default function FoodStatistics() {
   // Delete a food item
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:8080/fooddiary/delete/${id}`, {
+      await axios.delete(`http://localhost:8081/fooddiary/delete/${id}`, {
         headers: {
           email: email,
           Authorization: `Bearer ${authToken}`,
@@ -244,7 +244,7 @@ export default function FoodStatistics() {
   const handleShowDetails = async (id) => {
     try {
       const response = await axios.get(
-        `http://localhost:8080/fooddiary/details/${id}`,
+        `http://localhost:8081/fooddiary/details/${id}`,
         {
           headers: {
             email: email,
@@ -318,7 +318,7 @@ export default function FoodStatistics() {
   
     try {
       const response = await axios.post(
-        "http://localhost:8080/fooddiary/add",
+        "http://localhost:8081/fooddiary/add",
         adjustedFoodItem,
         { headers: { email } }
       );
@@ -416,7 +416,7 @@ export default function FoodStatistics() {
           .toISOString()
           .split("T")[0];
         const response = await axios.get(
-          `http://localhost:8080/fooddiary/stats/${formattedDate}`,
+          `http://localhost:8081/fooddiary/stats/${formattedDate}`,
           { headers: { email } }
         );
         setStats(response.data || {});  // Set an empty object if response is null or undefined
@@ -444,7 +444,7 @@ export default function FoodStatistics() {
           .split("T")[0];
 
         const response = await axios.get(
-          `http://localhost:8080/fooddiary/stats/graph/${formattedDate}`,
+          `http://localhost:8081/fooddiary/stats/graph/${formattedDate}`,
           { headers: { email } }
         );
         setGraphData(response.data || {}); // Set empty object if response is null or undefined
@@ -1518,7 +1518,7 @@ export default function FoodStatistics() {
       {/* Snackbar for notifications */}
       <Snackbar
         open={snackbar.open}
-        autoHideDuration={3000}
+        autoHideDuration={3001}
         onClose={() => setSnackbar({ ...snackbar, open: false })}
       >
         <Alert

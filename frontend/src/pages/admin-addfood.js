@@ -42,7 +42,7 @@ const Add = () => {
       navigate('/');
     } else {
       axios
-        .get(`http://localhost:8080/admin?username=${username}`, {
+        .get(`http://localhost:8081/admin?username=${username}`, {
           headers: {
             Authorization: `Bearer ${authToken}`,
           },
@@ -90,7 +90,7 @@ const Add = () => {
     data.append('netCarbs', formData.netCarbs);
 
     try {
-      const response = await axios.post('http://localhost:8080/food', data, {
+      const response = await axios.post('http://localhost:8081/food', data, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

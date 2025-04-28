@@ -146,7 +146,7 @@ export default function Account() {
       navigate('/'); // Redirect to login if no token or email
     } else {
       axios
-        .get(`http://localhost:8080/users?email=${email}`, {
+        .get(`http://localhost:8081/users?email=${email}`, {
           headers: {
             Authorization: `Bearer ${authToken}`,
           },
@@ -213,7 +213,7 @@ export default function Account() {
     const email = sessionStorage.getItem('email');
     if (user.Password) {
       axios
-        .post(`http://localhost:8080/verify-password`, { email, password: user.Password }) // Assume a backend endpoint to verify password
+        .post(`http://localhost:8081/verify-password`, { email, password: user.Password }) // Assume a backend endpoint to verify password
         .then((response) => {
           // If current password is correct, proceed with the update
           const formData = new FormData();
@@ -239,7 +239,7 @@ export default function Account() {
   
           // Send request to update user data
           axios
-            .put(`http://localhost:8080/edit/${email}`, formData, {
+            .put(`http://localhost:8081/edit/${email}`, formData, {
               headers: { 'Content-Type': 'multipart/form-data' },
             })
             .then((response) => {
@@ -280,7 +280,7 @@ export default function Account() {
   
       // Send request to update user data
       axios
-        .put(`http://localhost:8080/edit/${email}`, formData, {
+        .put(`http://localhost:8081/edit/${email}`, formData, {
           headers: { 'Content-Type': 'multipart/form-data' },
         })
         .then((response) => {

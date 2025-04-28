@@ -124,8 +124,8 @@ export default function Recommendations() {
     const fetchFoodItems = async (nutritionalLevel = null) => {
         try {
             const url = nutritionalLevel
-                ? `http://localhost:8080/recommendation/all?nutritionalLevel=${nutritionalLevel}`
-                : `http://localhost:8080/recommendation/all`;
+                ? `http://localhost:8081/recommendation/all?nutritionalLevel=${nutritionalLevel}`
+                : `http://localhost:8081/recommendation/all`;
             const response = await axios.get(url);
             setFoodItems(response.data);
             setFilteredFoodItems(response.data); // Update filtered items
@@ -154,7 +154,7 @@ export default function Recommendations() {
         if (!authToken || !email) {
             navigate('/'); // Redirect to login if no token or email
         } else {
-            axios.get(`http://localhost:8080/users?email=${email}`, {
+            axios.get(`http://localhost:8081/users?email=${email}`, {
                 headers: {
                     'Authorization': `Bearer ${authToken}`,
                 },
@@ -217,7 +217,7 @@ export default function Recommendations() {
         try {
             // Send the food diary entry to the server via POST request
             const response = await axios.post(
-                'http://localhost:8080/fooddiary/add',
+                'http://localhost:8081/fooddiary/add',
                 foodDiaryEntry, // The data to send to the backend
                 {
                     headers: {

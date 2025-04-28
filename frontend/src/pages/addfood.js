@@ -126,7 +126,7 @@ export default function AddFood() {
   useEffect(() => {
     const fetchFoodItems = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/food/all'); // Adjust this URL as per your backend API
+        const response = await axios.get('http://localhost:8081/food/all'); // Adjust this URL as per your backend API
         setFoodItems(response.data);
         setFilteredFoodItems(response.data); // Initially set filtered items to all food items
       } catch (error) {
@@ -157,7 +157,7 @@ export default function AddFood() {
 
     try {
       // Fetch food items based on the search query
-      const response = await axios.get(`http://localhost:8080/food/search?name=${query}`);
+      const response = await axios.get(`http://localhost:8081/food/search?name=${query}`);
       setFilteredFoodItems(response.data); // Update the filtered items based on the search result
     } catch (error) {
       console.error('Error fetching food items:', error);
@@ -179,7 +179,7 @@ export default function AddFood() {
     if (!authToken || !email) {
       navigate('/'); // Redirect to login if no token or email
     } else {
-      axios.get(`http://localhost:8080/users?email=${email}`, {
+      axios.get(`http://localhost:8081/users?email=${email}`, {
         headers: {
           'Authorization': `Bearer ${authToken}`,
         },
@@ -242,7 +242,7 @@ export default function AddFood() {
     try {
       // Send the food diary entry to the server via POST request
       const response = await axios.post(
-        'http://localhost:8080/fooddiary/add',
+        'http://localhost:8081/fooddiary/add',
         foodDiaryEntry, // The data to send to the backend
         {
           headers: {

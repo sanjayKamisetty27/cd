@@ -90,7 +90,7 @@ export default function SignIn() {
   // Fetch Captcha from Backend
   const generateCaptcha = async () => {
     try {
-      const response = await fetch('http://localhost:8080/captcha/generate');
+      const response = await fetch('http://localhost:8081/captcha/generate');
       const data = await response.json();
       setCaptcha(data.captcha);
       
@@ -132,7 +132,7 @@ export default function SignIn() {
     }
 
     try {
-      const response = await fetch('http://localhost:8080/users/login', {
+      const response = await fetch('http://localhost:8081/users/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: formData.email, password: formData.password }),

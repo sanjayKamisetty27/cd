@@ -24,6 +24,6 @@ spec:
         - image: suhas4u/cd-frontend
           name: react-container
           ports:
-            - containerPort: 3000
+            - containerPort: 3001
               protocol: TCP
       restartPolicy: Always

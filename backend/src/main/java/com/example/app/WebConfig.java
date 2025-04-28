@@ -15,7 +15,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-            .allowedOrigins("http://localhost:3000", "https://proteinpro.netlify.app") // Only front-end origins
+            .allowedOrigins("http://localhost:3001", "https://proteinpro.netlify.app") // Only front-end origins
             .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // Allow all necessary methods, including OPTIONS for preflight requests
             .allowedHeaders("*") // Allow all headers
             .allowCredentials(true); // Allow credentials (cookies, headers)
@@ -23,7 +23,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Bean
     public FilterRegistrationBean<CorsFilter> corsFilter() {
         CorsConfiguration corsConfiguration = new CorsConfiguration();
-        corsConfiguration.addAllowedOrigin("http://localhost:3000"); // Frontend origin
+        corsConfiguration.addAllowedOrigin("http://localhost:3001"); // Frontend origin
         corsConfiguration.addAllowedOrigin("https://proteinpro.netlify.app"); // Another frontend origin
         corsConfiguration.addAllowedMethod("GET");
         corsConfiguration.addAllowedMethod("POST");

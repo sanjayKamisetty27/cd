@@ -118,7 +118,7 @@ const AdminUsersPage = () => {
   // Fetch user data from backend
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/users/all?page=${page}&size=${rowsPerPage}`)
+      .get(`http://localhost:8081/users/all?page=${page}&size=${rowsPerPage}`)
       .then((response) => {
           setUsers(response.data.content); // `content` holds the current page of users
           setTotalUsers(response.data.totalElements); // `totalElements` is the total number of users
@@ -134,7 +134,7 @@ const AdminUsersPage = () => {
     if (!authToken || !username) {
       navigate('/'); // Redirect to home if no auth token or username is found
     } else {
-      axios.get(`http://localhost:8080/admin?username=${username}`, {
+      axios.get(`http://localhost:8081/admin?username=${username}`, {
         headers: {
           'Authorization': `Bearer ${authToken}`,
         },
@@ -182,7 +182,7 @@ const AdminUsersPage = () => {
   // Handle the update of user details
   const handleUpdateUser = () => {
     axios
-      .put(`http://localhost:8080/adminedit/${editUser.email}`, editUser)
+      .put(`http://localhost:8081/adminedit/${editUser.email}`, editUser)
       .then((response) => {
         setUsers((prevUsers) =>
           prevUsers.map((user) => (user.email === editUser.email ? response.data : user))
@@ -200,7 +200,7 @@ const AdminUsersPage = () => {
   const handleDelete = (email) => {
     if (window.confirm('Are you sure you want to delete this user?')) {
       axios
-        .delete(`http://localhost:8080/delete/${email}`)
+        .delete(`http://localhost:8081/delete/${email}`)
         .then(() => {
           setUsers((prevUsers) => prevUsers.filter((user) => user.email !== email));
           setSuccessMessage('User deleted successfully!');
@@ -354,7 +354,7 @@ const AdminUsersPage = () => {
         {successMessage && (
           <Snackbar
             open={true}
-            autoHideDuration={3000}
+            autoHideDuration={3001}
             onClose={() => setSuccessMessage('')}
           >
             <Alert onClose={() => setSuccessMessage('')} severity="success">{successMessage}</Alert>
@@ -363,7 +363,7 @@ const AdminUsersPage = () => {
         {errorMessage && (
           <Snackbar
             open={true}
-            autoHideDuration={3000}
+            autoHideDuration={3001}
             onClose={() => setErrorMessage('')}
           >
             <Alert onClose={() => setErrorMessage('')} severity="error">{errorMessage}</Alert>

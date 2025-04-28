@@ -137,7 +137,7 @@ export default function MiniDrawer() {
     } else {
       // Fetch user details
       axios
-        .get(`http://localhost:8080/users?email=${email}`, {
+        .get(`http://localhost:8081/users?email=${email}`, {
           headers: {
             Authorization: `Bearer ${authToken}`,
           },
@@ -158,7 +158,7 @@ export default function MiniDrawer() {
 
             // Fetch profile image if it exists
             axios
-              .get(`http://localhost:8080/imageconverter/${email}`, {
+              .get(`http://localhost:8081/imageconverter/${email}`, {
                 headers: {
                   Authorization: `Bearer ${authToken}`,
                 },
@@ -187,7 +187,7 @@ export default function MiniDrawer() {
       const fetchStats = async () => {
         try {
           const statsResponse = await axios.get(
-            `http://localhost:8080/fooddiary/foodstats`, // Updated endpoint
+            `http://localhost:8081/fooddiary/foodstats`, // Updated endpoint
             { headers: { email } } // Pass only the email in headers
           );
           setStats(statsResponse.data || {}); // Set an empty object if response is null or undefined
@@ -204,7 +204,7 @@ export default function MiniDrawer() {
       const fetchExerciseStats = async () => {
         try {
           const statsResponse = await axios.get(
-            `http://localhost:8080/exercisediary/exercisestats`, // Updated endpoint for exercise stats
+            `http://localhost:8081/exercisediary/exercisestats`, // Updated endpoint for exercise stats
             { headers: { email } } // Pass only the email in headers
           );
           setExerciseStats(statsResponse.data || {}); // Set an empty object if response is null or undefined

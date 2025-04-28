@@ -25,12 +25,12 @@ spec:
             - name: SPRING_DATASOURCE_PASSWORD
               value: has@2004
             - name: SPRING_DATASOURCE_URL
-              value: jdbc:mysql://mysql-db:3306/project
+              value: jdbc:mysql://mysql-db:3308/project
             - name: SPRING_DATASOURCE_USERNAME
               value: root
           image: suhas4u/cd-backend
           name: springboot-container
           ports:
-            - containerPort: 8080
+            - containerPort: 8081
               protocol: TCP
       restartPolicy: Always

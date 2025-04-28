@@ -49,7 +49,7 @@ const Admin = () => {
   useEffect(() => {
     const fetchFoodItems = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/food/all'); // Adjust this URL as per your backend API
+        const response = await axios.get('http://localhost:8081/food/all'); // Adjust this URL as per your backend API
         setFoodItems(response.data);
         setFilteredFoodItems(response.data); // Initially set filtered items to all food items
       } catch (error) {
@@ -121,7 +121,7 @@ const Admin = () => {
 
       // Make API call to update the food item
       await axios.put(
-        `http://localhost:8080/food/${editForm.id}`,
+        `http://localhost:8081/food/${editForm.id}`,
         formData,
         {
           headers: { 'Content-Type': 'multipart/form-data' },
@@ -135,7 +135,7 @@ const Admin = () => {
       setOpenEdit(false); // Close the edit modal/dialog
 
       // Fetch updated food items
-      const updatedFoodItems = await axios.get('http://localhost:8080/food/all');
+      const updatedFoodItems = await axios.get('http://localhost:8081/food/all');
       setFoodItems(updatedFoodItems.data);
     } catch (error) {
       // Handle errors
@@ -157,7 +157,7 @@ const Admin = () => {
 
   const handleConfirmDelete = async () => {
     try {
-      await axios.delete(`http://localhost:8080/food/${itemToDelete.id}`);
+      await axios.delete(`http://localhost:8081/food/${itemToDelete.id}`);
       const updatedFoodItems = foodItems.filter(item => item.name !== itemToDelete.name);
       setFoodItems(updatedFoodItems);
       setOpenDelete(false);
@@ -176,7 +176,7 @@ const Admin = () => {
 
     try {
       // Fetch food items based on the search query
-      const response = await axios.get(`http://localhost:8080/food/search?name=${query}`);
+      const response = await axios.get(`http://localhost:8081/food/search?name=${query}`);
       setFilteredFoodItems(response.data); // Update the filtered items based on the search result
     } catch (error) {
       console.error('Error fetching food items:', error);
@@ -200,7 +200,7 @@ const Admin = () => {
         {successMessage && (
           <Snackbar
             open={true}
-            autoHideDuration={3000}
+            autoHideDuration={3001}
             onClose={() => setSuccessMessage('')}
           >
             <Alert onClose={() => setSuccessMessage('')} severity="success">{successMessage}</Alert>
@@ -209,7 +209,7 @@ const Admin = () => {
         {errorMessage && (
           <Snackbar
             open={true}
-            autoHideDuration={3000}
+            autoHideDuration={3001}
             onClose={() => setErrorMessage('')}
           >
             <Alert onClose={() => setErrorMessage('')} severity="error">{errorMessage}</Alert>
