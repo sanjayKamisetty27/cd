@@ -1,0 +1,120 @@
+/* Container styles */
+.calendar-container {
+  background-color: #ffffff; /* White background for calendar */
+  border-radius: 20px; /* Increased border-radius for smoother look */
+  width: 500px; /* Increased width for a more spacious appearance */
+  border: 1px solid #dcdcdc;
+  margin-top: 90px; /* Top margin for proper spacing */
+  padding: 20px; /* Padding for better content alignment */
+  box-shadow: 0 8px 20px rgba(0, 191, 255, 0.3); /* Elevated sky blue shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-left: 25px;
+}
+
+.calendar-container:hover {
+  box-shadow: 0 12px 25px rgba(0, 191, 255, 0.5); /* More prominent shadow on hover */
+  transform: scale(1.02); /* Slight zoom on hover */
+}
+
+/* Calendar styles */
+.custom-calendar {
+  border: none; /* Remove default border */
+}
+
+/* Tile (date cell) styles */
+.react-calendar__tile {
+  padding: 15px; /* Increased padding for better spacing */
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  font-weight: bold;
+  background-color: #ffffff;
+}
+
+.react-calendar__tile:hover {
+  color: #007bff; /* Sky blue text on hover */
+  transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+/* Highlight selected date */
+.selected-date {
+  color: #00bfff; /* Sky blue text for selected date */
+  font-size: 1.1em; /* Slightly larger text */
+  font-weight: bold;
+}
+
+/* Highlight today's date */
+.today-date {
+  color: #007bff; /* Blue text for today's date */
+  font-weight: bold;
+  font-size: 1.1em; /* Slightly larger text */
+}
+
+
+/* Remove table-like borders */
+.react-calendar__month-view__days__day--neighboringMonth {
+  color: #b0b0b0; /* Dimmed color for days from previous/next month */
+}
+
+/* Highlight today's date with a circle */
+.react-calendar__tile--now {
+  color: #007bff; /* Blue text for today's date */
+  font-weight: bold;
+  height: 50px; /* Equal height for circle */
+  width: 50px; /* Equal width for circle */
+  display: flex; /* Flexbox for centering */
+  align-items: center; /* Vertical alignment */
+  justify-content: center; /* Horizontal alignment */
+  margin: auto; /* Center within parent container */
+  margin-left: auto; /* Explicitly set left margin */
+  margin-right: auto; /* Explicitly set right margin */
+}
+
+
+
+/* Remove extra borders */
+.react-calendar__tile {
+  border: none;
+}
+
+/* Improved typography */
+.react-calendar__tile,
+.react-calendar__navigation__label,
+.react-calendar__navigation__arrow {
+  font-family: 'Poppins', sans-serif; /* Modern font for professional look */
+  font-size: 1em; /* Uniform text size */
+}
+
+
+.react-calendar__navigation {
+  background-color: #87ceeb; /* Light sky blue */
+  display: flex; /* Flexbox for layout */
+  align-items: center; /* Center items vertically */
+  justify-content: space-between; /* Space out arrows and label */
+  padding: 12px 20px; /* Adjust padding for better alignment */
+  font-weight: bold;
+  margin-bottom: 10px; /* Space below navigation bar */
+  border-radius: 12px; /* Smooth corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for bar */
+  border: none; /* Remove any border */
+}
+
+/* Navigation arrows styling */
+.react-calendar__navigation__arrow {
+  color: black; /* Black arrows */
+  background-color: transparent; /* Transparent background for arrows */
+  border: none; /* Remove borders from arrows */
+  font-size: 1.2em; /* Increase arrow size for better visibility */
+  cursor: pointer; /* Change cursor to pointer for better UX */
+}
+
+/* Center the month and year label */
+.react-calendar__navigation__label {
+  flex-grow: 1; /* Take up remaining space between arrows */
+  text-align: center; /* Center align month and year */
+  color: black; /* Text color */
+  font-size: 1.2em; /* Adjust font size for better visibility */
+  font-weight: bold;
+  background-color: transparent;
+  border: none; /* Remove borders from arrows */
+}
+
