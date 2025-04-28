@@ -10,7 +10,7 @@ services:
       MYSQL_USER: root
       MYSQL_PASSWORD: root
     ports:
-      - "3307:3306"  # You have mapped MySQL to port 3308 on the host
+      - "3308:3306"  # You have mapped MySQL to port 3308 on the host
     volumes:
       - mysql_data:/var/lib/mysql
     healthcheck:
